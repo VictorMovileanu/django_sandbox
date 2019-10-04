@@ -24,7 +24,7 @@ SECRET_KEY = '=_0*4jj!vl(&odm!z%*$^t+u$a^!p#(viba_!aj@m$ucx2$ag$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SHELL_PLUS = "bpython"
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
