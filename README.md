@@ -22,3 +22,6 @@ Following tools are installed in the master branch
 # Branches
 
 1. intercooler.js
+2. `testing`: load test data with mockaroo
+3. `django-oauth-toolkit`: create an oauth server
+4. `accounts`: basic account views implementations
