@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from drag_and_drop.views import IndexView
+from drag_and_drop.views import IndexView, DndView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view())
+    path('', IndexView.as_view()),
+    path('drag-and-drop-files', DndView.as_view(), name='dnd-files')
 ]
