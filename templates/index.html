@@ -36,7 +36,7 @@
 <body>
 
 <p>source: <a href="https://www.html5rocks.com/de/tutorials/dnd/basics/">https://www.html5rocks.com/de/tutorials/dnd/basics/</a></p>
-
+<p><strong>Fun fact:</strong> you can drag links by default. Try it out!</p>
 <div id="columns">
     <div class="column" draggable="true"><header>A</header></div>
     <div class="column" draggable="true"><header>B</header></div>
@@ -44,8 +44,12 @@
 </div>
 
 <script>
+    let dragSrcEl = null;
     function handleDragStart(e) {
-        this.style.opacity = '0.4'
+        this.style.opacity = '0.4';
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
     }
     function handleDragOver(e) {
         if (e.preventDefault) {
@@ -64,6 +68,12 @@
         if (e.stopPropagation) {
             e.stopPropagation()
         }
+        this.classList.remove('over');  // in case another draggable element is dropped on this
+        if (dragSrcEl !== this  && dragSrcEl !== null) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = e.dataTransfer.getData('text/html');
+        }
+        dragSrcEl = null;  // avoid another draggable element to set the inner HTML of a column
         return false;
     }
     function handleDragEnd(e) {
@@ -71,6 +81,7 @@
         [].forEach.call(cols, function (col) {
             col.classList.remove('over');
         });
+        dragSrcEl = null;
     }
     var cols = document.querySelectorAll('#columns .column');
     [].forEach.call(cols, function (col) {
