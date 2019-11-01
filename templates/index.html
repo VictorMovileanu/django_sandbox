@@ -28,6 +28,9 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
+        .column.over {
+            border: 2px dashed #000;
+        }
     </style>
 </head>
 <body>
@@ -44,9 +47,39 @@
     function handleDragStart(e) {
         this.style.opacity = '0.4'
     }
+    function handleDragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault()
+        }
+        e.dataTransfer.dropEffect = 'move';
+        return false;
+    }
+    function handleDragEnter(e) {
+        this.classList.add('over');
+    }
+    function handleDragLeave(e) {
+        this.classList.remove('over');
+    }
+    function handleDrop(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation()
+        }
+        return false;
+    }
+    function handleDragEnd(e) {
+        this.style.opacity = '1';
+        [].forEach.call(cols, function (col) {
+            col.classList.remove('over');
+        });
+    }
     var cols = document.querySelectorAll('#columns .column');
     [].forEach.call(cols, function (col) {
-        col.addEventListener('dragstart', handleDragStart, false)
+        col.addEventListener('dragstart', handleDragStart, false);
+        col.addEventListener('dragenter', handleDragEnter, false);
+        col.addEventListener('dragover', handleDragOver, false);
+        col.addEventListener('dragleave', handleDragLeave, false);
+        col.addEventListener('drop', handleDrop, false);
+        col.addEventListener('dragend', handleDragEnd, false);
     })
 </script>
 
