@@ -34,11 +34,21 @@
 
 <p>source: <a href="https://www.html5rocks.com/de/tutorials/dnd/basics/">https://www.html5rocks.com/de/tutorials/dnd/basics/</a></p>
 
-<div class="columns">
+<div id="columns">
     <div class="column" draggable="true"><header>A</header></div>
     <div class="column" draggable="true"><header>B</header></div>
     <div class="column" draggable="true"><header>C</header></div>
 </div>
+
+<script>
+    function handleDragStart(e) {
+        this.style.opacity = '0.4'
+    }
+    var cols = document.querySelectorAll('#columns .column');
+    [].forEach.call(cols, function (col) {
+        col.addEventListener('dragstart', handleDragStart, false)
+    })
+</script>
 
 </body>
 </html>
