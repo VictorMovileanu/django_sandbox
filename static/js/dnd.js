@@ -14,7 +14,10 @@ function handleDrop(e) {
         e.stopPropagation()
     }
     const url = this.dataset.updateurl;
-    $.post(url);
+    let self = this;
+    $.post(url, $(dragSrcEl).data(), function (data) {
+        self.innerHTML = data
+    });
     dragSrcEl = null;
 }
 [].forEach.call($('.link'), function (item) {

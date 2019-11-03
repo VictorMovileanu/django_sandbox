@@ -1,1 +1,1 @@
-<li class="category" data-updateurl="{% url 'update-category' pk=category.pk %}">{{ category }}{% if category.links.exists %}: {{ category.links|join:", " }}{% endif %}</li>
+<li class="category" data-updateurl="{% url 'update-category' pk=category.pk %}">{{ category }}{% if category.links.exists %}: {{ category.links.all|join:", " }}{% endif %}</li>

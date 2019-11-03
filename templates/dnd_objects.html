@@ -16,7 +16,7 @@
 <h3>Links</h3>
 <ul>
     {% for l in links %}
-        <li draggable="true" class="link">{{ l }}</li>
+        {% include "partials/link.html" with link=l %}
     {% endfor %}
 </ul>
 
