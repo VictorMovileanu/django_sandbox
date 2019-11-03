@@ -1,0 +1,10 @@
+[{"id":1,"model":"drag_and_drop.category","fields":{"name":"info-mediaries"}},
+{"id":2,"model":"drag_and_drop.category","fields":{"name":"Team-oriented"}},
+{"id":3,"model":"drag_and_drop.category","fields":{"name":"infrastructure"}},
+{"id":4,"model":"drag_and_drop.category","fields":{"name":"Synchronised"}},
+{"id":5,"model":"drag_and_drop.category","fields":{"name":"scalable"}},
+{"id":6,"model":"drag_and_drop.category","fields":{"name":"process improvement"}},
+{"id":7,"model":"drag_and_drop.category","fields":{"name":"Exclusive"}},
+{"id":8,"model":"drag_and_drop.category","fields":{"name":"Re-contextualized"}},
+{"id":9,"model":"drag_and_drop.category","fields":{"name":"superstructure"}},
+{"id":10,"model":"drag_and_drop.category","fields":{"name":"logistical"}}]

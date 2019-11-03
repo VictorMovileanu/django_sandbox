@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and drop objects</title>
+</head>
+<body>
+
+<h3>Categories</h3>
+<ul>
+    {% for c in categories %}
+        {% include "partials/category.html" with category=c %}
+    {% endfor %}
+</ul>
+<h3>Links</h3>
+<ul>
+    {% for l in links %}
+        <li draggable="true" class="link">{{ l }}</li>
+    {% endfor %}
+</ul>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="{% static 'js/dnd.js' %}"></script>
+</body>
+</html>

@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from drag_and_drop.views import IndexView, DndView
+from drag_and_drop.views import IndexView, DndView, DndObjectsView, add_link_to_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view()),
-    path('drag-and-drop-files', DndView.as_view(), name='dnd-files')
+    path('drag-and-drop-files', DndView.as_view(), name='dnd-files'),
+    path('drag-and-drop-objects', DndObjectsView.as_view(), name='dnd-objects'),
+    path('update-category/<int:pk>', add_link_to_category, name='update-category')
 ]
